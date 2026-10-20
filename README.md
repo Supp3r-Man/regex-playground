@@ -65,7 +65,7 @@ Beyond those, I drove the real page in headless Chrome once, by hand, with a thr
 - The tool shows at most 1000 matches. The replace preview is not capped, so it always reflects every match.
 - Tested in Chrome only (headless, once, as above). Other browsers are untested, though the app uses only standard APIs (`Worker`, `history.replaceState`, optional `navigator.clipboard`). The copy button falls back to selecting the link field if the clipboard is unavailable.
 - Not deployed anywhere. To publish it, enable GitHub Pages for the repository and serve the repository root.
-- CI not yet confirmed. The workflow (`.github/workflows/ci.yml`) is set to run `npm test` on Node 20, 22 and 24, but it has not run on GitHub yet.
+- CI: the workflow (`.github/workflows/ci.yml`) runs `npm test` on Node 20, 22 and 24. CI ran green on all three Node versions on the first run on GitHub Actions (ubuntu-latest, 2026-10-20).
 
 ## Clone
 
