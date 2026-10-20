@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regex Playground</title>
+  <meta name="description" content="Test JavaScript regular expressions in the browser: highlighted matches, capture groups, replace preview and a plain-English explanation. Matching runs in a Web Worker with a timeout.">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Regex Playground</h1>
+    <span class="muted small-top">JavaScript regular expressions. Runs only in your browser.</span>
+  </header>
+
+  <div class="layout">
+    <main class="main" id="main">
+      <section aria-label="Inputs" class="inputs">
+        <div class="row">
+          <div class="grow">
+            <label class="field" for="pattern"><span>Pattern</span></label>
+            <div class="pattern-box">
+              <span class="slash" aria-hidden="true">/</span>
+              <input id="pattern" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="status">
+              <span class="slash" aria-hidden="true">/</span>
+            </div>
+          </div>
+          <div class="preset">
+            <label class="field" for="preset"><span>Examples</span></label>
+            <select id="preset"></select>
+          </div>
+        </div>
+
+        <fieldset class="flags" id="flags">
+          <legend>Flags</legend>
+        </fieldset>
+
+        <label class="field" for="text"><span>Test string</span></label>
+        <textarea id="text" spellcheck="false" autocomplete="off" autocapitalize="off" rows="5" wrap="soft"></textarea>
+
+        <label class="field" for="replacement"><span>Replacement (optional; leave empty to hide the preview)</span></label>
+        <input id="replacement" type="text" spellcheck="false" autocomplete="off" autocapitalize="off" class="full">
+
+        <div class="row share">
+          <input id="share-url" type="text" readonly aria-label="Shareable link" class="grow">
+          <button id="copy" type="button">Copy link</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+        <p class="muted small">The link holds the pattern, flags, text and replacement after the #, so it never reaches a server.</p>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <section aria-label="Highlighted matches" class="block">
+        <h2>Matches in the text <span id="match-count" class="count"></span></h2>
+        <pre id="highlight" class="highlight"></pre>
+      </section>
+
+      <section aria-label="Match table" class="block">
+        <h2>Match table</h2>
+        <div id="table" class="table-wrap"></div>
+      </section>
+
+      <section aria-label="Replace preview" class="block" id="replace-block" hidden>
+        <h2>Replace preview</h2>
+        <pre id="replaced" class="replaced"></pre>
+        <p id="replace-note" class="muted small"></p>
+      </section>
+    </main>
+
+    <aside class="side" aria-label="Explanation and cheat sheet">
+      <section class="block first">
+        <h2>Explanation</h2>
+        <p class="muted small">A small hand-written tokenizer. It is partial; the list under the explanation says what it skips.</p>
+        <ol id="explain" class="explain"></ol>
+        <details class="note">
+          <summary>What the explanation does not cover</summary>
+          <ul id="explain-limits"></ul>
+        </details>
+      </section>
+      <section class="block">
+        <h2>Cheat sheet</h2>
+        <div id="cheat"></div>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <span>Matching runs in a Web Worker that is stopped after 2 seconds. Nothing you type is sent anywhere.</span>
+  </footer>
+
+  <script src="src/core.js"></script>
+  <script src="src/lib.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

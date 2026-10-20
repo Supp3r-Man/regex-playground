@@ -1,0 +1,14 @@
+{
+  "name": "regex-playground",
+  "version": "0.1.0",
+  "description": "A small, dependency-free regex tester: highlighted matches, groups, replace preview and a partial plain-English explanation. Matching runs in a Web Worker with a timeout.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test",
+    "start": "node scripts/serve.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
